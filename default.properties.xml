@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
+<!-- переименуйте этот файл в ".properties.xml" и подставьте свои значения вместо фигурных скобок -->
+<project name="servers paths" basedir=".">
+    <property name="mysql-host" value="{адрес сервера MySQL, например 'localhost'}" />
+    <property name="mysql-port" value="{порт сервера MySQL, например '3306'}" />
+</project>
