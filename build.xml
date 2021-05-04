@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
+<project name="epam-final-project-example" basedir=".">
+    <import file=".properties.xml" />
+
+    <property name="mysql-driver-jar" value="target/epam-final-project-example-0.0.1-SNAPSHOT/WEB-INF/lib/mysql-connector-java-8.0.24.jar" />
+    <property name="mysql-driver-class" value="com.mysql.cj.jdbc.Driver" />
+    <property name="mysql-url" value="jdbc:mysql://${mysql-host}:${mysql-port}?useUnicode=true&amp;characterEncoding=UTF-8" />
+    <property name="mysql-username" value="root" />
+    <property name="mysql-password" value="" />
+
+    <target name="Init data base" description="инициализация базы данных">
+        <sql driver="${mysql-driver-class}" url="${mysql-url}" userid="${mysql-username}" password="${mysql-password}" encoding="utf8">
+            <classpath>
+                <pathelement location="${mysql-driver-jar}" />
+            </classpath>
+            <sort>
+                <fileset dir="db" includes="*.sql" />
+            </sort>
+        </sql>
+    </target>
+</project>
