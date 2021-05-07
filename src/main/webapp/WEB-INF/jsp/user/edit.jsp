@@ -24,7 +24,14 @@
     <body>
         <h1>Банк «Рога и копыта»</h1>
         <h2><%=title%></h2>
-        <form>
+        <form action="save.html" method="post">
+            <%
+                if(user.getId() != null) {
+            %>
+            <input name="id" value="<%=user.getId()%>" type="hidden">
+            <%
+                }
+            %>
             <label for="login">Имя пользователя:</label>
             <input id="login" name="login" value="<%=user.getLogin()%>">
             <label for="role">Роль:</label>
@@ -44,6 +51,7 @@
                     }
                 %>
             </select>
+            <button class="save">Сохранить</button>
             <a class="back" href="list.html">Отменить</a>
         </form>
     </body>

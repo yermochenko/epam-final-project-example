@@ -29,6 +29,16 @@
         <url-pattern>/user/edit.html</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>UserSaveServlet</servlet-name>
+        <servlet-class>by.vsu.epam.controller.user.UserSaveServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserSaveServlet</servlet-name>
+        <url-pattern>/user/save.html</url-pattern>
+    </servlet-mapping>
+
     <listener>
         <listener-class>by.vsu.epam.controller.ApplicationStartListener</listener-class>
     </listener>

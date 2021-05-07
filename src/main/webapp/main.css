@@ -35,7 +35,11 @@ form label {
     margin-top: 32px;
 }
 
-a.edit, a.add-button, a.back {
+form.important label {
+    margin-top: 10px;
+}
+
+a.edit, a.add-button, a.back, form button {
     display: inline-block;
     border: 0;
     min-width: 32px;
@@ -45,10 +49,14 @@ a.edit, a.add-button, a.back {
     outline: 0;
 }
 
-a.add-button, a.back {
+a.add-button, a.back, form button {
     margin: 32px 5px 0 0;
     padding: 0 5px 0 32px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+form button {
+    cursor: pointer;
 }
 
 a.edit, a.add-button, a.back {
@@ -65,4 +73,8 @@ a.add-button {
 
 a.back {
     background: #04C url('back.png') no-repeat;
+}
+
+form button.save {
+    background: #0C4 url('save.png') no-repeat;
 }
