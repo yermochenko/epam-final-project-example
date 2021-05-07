@@ -19,6 +19,20 @@
         <url-pattern>/user/list.html</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>UserEditServlet</servlet-name>
+        <servlet-class>by.vsu.epam.controller.user.UserEditServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserEditServlet</servlet-name>
+        <url-pattern>/user/edit.html</url-pattern>
+    </servlet-mapping>
+
+    <listener>
+        <listener-class>by.vsu.epam.controller.ApplicationStartListener</listener-class>
+    </listener>
+
     <session-config>
         <session-timeout>30</session-timeout>
         <tracking-mode>COOKIE</tracking-mode>

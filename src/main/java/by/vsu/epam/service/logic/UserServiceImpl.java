@@ -16,6 +16,15 @@ public class UserServiceImpl extends BaseService implements UserService {
     }
 
     @Override
+    public User findById(Long id) throws ServiceException {
+        try {
+            return userDao.read(id);
+        } catch(DaoException e) {
+            throw new ServiceException(e);
+        }
+    }
+
+    @Override
     public List<User> findAll() throws ServiceException {
         try {
             return userDao.readAll();

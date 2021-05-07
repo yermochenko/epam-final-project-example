@@ -15,6 +15,7 @@
             <tr>
                 <th>Имя пользователя</th>
                 <th>Роль</th>
+                <td>&nbsp;</td>
             </tr>
             <%
                 @SuppressWarnings("unchecked")
@@ -24,10 +25,12 @@
             <tr>
                 <td class="content"><%=user.getLogin()%></td>
                 <td class="content"><%=user.getRole().getName()%></td>
+                <td class="empty"><a href="edit.html?id=<%=user.getId()%>" class="edit"></a></td>
             </tr>
             <%
                 }
             %>
         </table>
+        <a href="edit.html" class="add-button">Добавить</a>
     </body>
 </html>
