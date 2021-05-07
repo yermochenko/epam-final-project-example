@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE project>
-<project name="epam-final-project-example" basedir=".">
+<project name="epam-final-project-example" basedir="." default="Reload application">
     <import file=".properties.xml" />
 
     <property name="mysql-driver-jar" value="target/epam-final-project-example-0.0.1-SNAPSHOT/WEB-INF/lib/mysql-connector-java-8.0.24.jar" />
     <property name="mysql-driver-class" value="com.mysql.cj.jdbc.Driver" />
     <property name="mysql-url" value="jdbc:mysql://${mysql-host}:${mysql-port}?useUnicode=true&amp;characterEncoding=UTF-8" />
-    <property name="mysql-username" value="root" />
-    <property name="mysql-password" value="" />
+    <property name="tomcat-manager-url" value="http://${tomcat-host}:${tomcat-port}/manager/text" />
+    <property name="deploy-path" value="/epam-bank"/>
 
     <target name="Init data base" description="инициализация базы данных">
         <sql driver="${mysql-driver-class}" url="${mysql-url}" userid="${mysql-username}" password="${mysql-password}" encoding="utf8">
@@ -19,4 +19,35 @@
             </sort>
         </sql>
     </target>
+
+    <target name="Reload application" description="перезапуск приложения" depends="Maven install">
+        <reload url="${tomcat-manager-url}" username="${tomcat-user}" password="${tomcat-password}" path="${deploy-path}" />
+    </target>
+
+    <target name="Maven install" description="запуск maven-цели install">
+        <path id="classpath">
+            <fileset dir="${maven-dir}/boot">
+                <include name="plexus-classworlds-*.jar" />
+            </fileset>
+        </path>
+        <java classname="org.codehaus.plexus.classworlds.launcher.Launcher" classpathref="classpath" fork="true" failonerror="true">
+            <jvmarg value="-Dclassworlds.conf=${maven-dir}/bin/m2.conf" />
+            <jvmarg value="-Dmaven.home=${maven-dir}" />
+            <jvmarg value="-Dmaven.multiModuleProjectDirectory=${maven-dir}" />
+            <arg value="install" />
+        </java>
+    </target>
+
+    <taskdef name="reload" classname="org.apache.catalina.ant.ReloadTask">
+        <classpath>
+            <fileset dir="${tomcat-dir}/lib">
+                <include name="catalina-ant.jar" />
+                <include name="tomcat-coyote.jar" />
+                <include name="tomcat-util.jar" />
+            </fileset>
+            <fileset dir="${tomcat-dir}/bin">
+                <include name="tomcat-juli.jar" />
+            </fileset>
+        </classpath>
+    </taskdef>
 </project>

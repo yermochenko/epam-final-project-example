@@ -4,4 +4,14 @@
 <project name="servers paths" basedir=".">
     <property name="mysql-host" value="{адрес сервера MySQL, например 'localhost'}" />
     <property name="mysql-port" value="{порт сервера MySQL, например '3306'}" />
+    <property name="mysql-username" value="{имя пользователя на сервере MySQL, имеющего права создавать базу данных, например 'root'}" />
+    <property name="mysql-password" value="{пароль пользователя на сервере MySQL, например '' (пустой пароль)}" />
+
+    <property name="tomcat-dir" value="{путь к серверу Tomcat, например 'D:/programs/tomcat'}" />
+    <property name="tomcat-host" value="{адрес сервера Tomcat, например 'localhost'}" />
+    <property name="tomcat-port" value="{порт сервера Tomcat, например '8080'}" />
+    <property name="tomcat-user" value="{имя пользователя на сервере Tomcat, имеющего роль manager-script, например 'root'}"/>
+    <property name="tomcat-password" value="{пароль пользователя на сервере Tomcat, например 'root'}"/>
+
+    <property name="maven-dir" value="{путь к Maven, например 'D:/programs/maven'}"/>
 </project>
