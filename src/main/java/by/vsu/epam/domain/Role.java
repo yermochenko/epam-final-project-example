@@ -1,9 +1,9 @@
 package by.vsu.epam.domain;
 
 public enum Role {
-    CASHIER("role.cashier"),
-    MANAGER("role.manager"),
-    ADMINISTRATOR("role.admin");
+    CASHIER("Кассир"),
+    MANAGER("Менеджер"),
+    ADMINISTRATOR("Администратор");
 
     private String name;
 
