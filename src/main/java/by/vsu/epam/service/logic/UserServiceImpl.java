@@ -9,6 +9,7 @@ import by.vsu.epam.service.UserService;
 import by.vsu.epam.service.exception.ServiceException;
 import by.vsu.epam.service.exception.UserLoginNotUniqueException;
 import by.vsu.epam.service.exception.UserNotExistsException;
+import by.vsu.epam.service.exception.UserPasswordIncorrectException;
 
 public class UserServiceImpl extends BaseService implements UserService {
     private UserDao userDao;
@@ -64,6 +65,34 @@ public class UserServiceImpl extends BaseService implements UserService {
                 } else {
                     throw new UserLoginNotUniqueException(user.getLogin());
                 }
+            }
+            getTransaction().commit();
+        } catch(DaoException e) {
+            try { getTransaction().rollback(); } catch(ServiceException e1) {}
+            throw new ServiceException(e);
+        } catch(ServiceException e) {
+            try { getTransaction().rollback(); } catch(ServiceException e1) {}
+            throw e;
+        }
+    }
+
+    @Override
+    public void changePassword(Long userId, String oldPassword, String newPassword) throws ServiceException {
+        try {
+            getTransaction().start();
+            User user = userDao.read(userId);
+            if(user != null) {
+                if(user.getPassword().equals(oldPassword)) {
+                    if(newPassword == null) {
+                        newPassword = defaultPassword;
+                    }
+                    user.setPassword(newPassword);
+                    userDao.update(user);
+                } else {
+                    throw new UserPasswordIncorrectException(user.getId());
+                }
+            } else {
+                throw new UserNotExistsException(userId);
             }
             getTransaction().commit();
         } catch(DaoException e) {

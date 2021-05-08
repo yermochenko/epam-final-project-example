@@ -57,6 +57,7 @@
                     String disabled = (boolean)request.getAttribute("userCanBeDeleted") ? "" : "disabled";
             %>
             <button class="delete" formaction="delete.html" formmethod="post" <%=disabled%>>Удалить</button>
+            <button class="password-reset" formaction="password/reset.html" formmethod="post">Сбросить пароль</button>
             <%
                 }
             %>

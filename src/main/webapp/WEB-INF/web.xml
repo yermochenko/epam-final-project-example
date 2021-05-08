@@ -48,6 +48,16 @@
         <url-pattern>/user/delete.html</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>PasswordResetServlet</servlet-name>
+        <servlet-class>by.vsu.epam.controller.user.password.PasswordResetServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PasswordResetServlet</servlet-name>
+        <url-pattern>/user/password/reset.html</url-pattern>
+    </servlet-mapping>
+
     <listener>
         <listener-class>by.vsu.epam.controller.ApplicationStartListener</listener-class>
     </listener>

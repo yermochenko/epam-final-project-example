@@ -35,10 +35,6 @@ form label {
     margin-top: 32px;
 }
 
-form.important label {
-    margin-top: 10px;
-}
-
 a.edit, a.add-button, a.back, form button {
     display: inline-block;
     border: 0;
@@ -88,4 +84,8 @@ form button.save {
 
 form button.delete {
     background: #C40 url('delete.png') no-repeat;
+}
+
+form button.password-reset {
+    background: #FC4 url('reset.png') no-repeat;
 }
