@@ -78,3 +78,7 @@ a.back {
 form button.save {
     background: #0C4 url('save.png') no-repeat;
 }
+
+form button.delete {
+    background: #C40 url('delete.png') no-repeat;
+}

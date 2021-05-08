@@ -52,6 +52,13 @@
                 %>
             </select>
             <button class="save">Сохранить</button>
+            <%
+                if(user.getId() != null) {
+            %>
+            <button class="delete" formaction="delete.html" formmethod="post">Удалить</button>
+            <%
+                }
+            %>
             <a class="back" href="list.html">Отменить</a>
         </form>
     </body>

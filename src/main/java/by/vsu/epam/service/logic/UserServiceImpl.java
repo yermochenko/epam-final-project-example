@@ -74,4 +74,13 @@ public class UserServiceImpl extends BaseService implements UserService {
             throw e;
         }
     }
+
+    @Override
+    public void delete(Long id) throws ServiceException {
+        try {
+            userDao.delete(id);
+        } catch(DaoException e) {
+            throw new ServiceException(e);
+        }
+    }
 }
