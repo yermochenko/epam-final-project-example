@@ -54,8 +54,9 @@
             <button class="save">Сохранить</button>
             <%
                 if(user.getId() != null) {
+                    String disabled = (boolean)request.getAttribute("userCanBeDeleted") ? "" : "disabled";
             %>
-            <button class="delete" formaction="delete.html" formmethod="post">Удалить</button>
+            <button class="delete" formaction="delete.html" formmethod="post" <%=disabled%>>Удалить</button>
             <%
                 }
             %>

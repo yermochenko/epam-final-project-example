@@ -12,5 +12,7 @@ public interface UserService {
 
     void save(User user) throws ServiceException;
 
+    boolean canDelete(Long id) throws ServiceException;
+
     void delete(Long id) throws ServiceException;
 }
