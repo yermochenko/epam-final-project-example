@@ -1,6 +1,5 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="by.vsu.epam.domain.User"%>
-<%@page import="java.util.List"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,19 +16,13 @@
                 <th>Роль</th>
                 <td>&nbsp;</td>
             </tr>
-            <%
-                @SuppressWarnings("unchecked")
-                List<User> users = (List<User>)request.getAttribute("users");
-                for(User user : users) {
-            %>
+            <c:forEach var="user" items="${users}">
             <tr>
-                <td class="content"><%=user.getLogin()%></td>
-                <td class="content"><%=user.getRole().getName()%></td>
-                <td class="empty"><a href="edit.html?id=<%=user.getId()%>" class="edit"></a></td>
+                <td class="content">${user.login}</td>
+                <td class="content">${user.role.name}</td>
+                <td class="empty"><a href="edit.html?id=${user.id}" class="edit"></a></td>
             </tr>
-            <%
-                }
-            %>
+            </c:forEach>
         </table>
         <a href="edit.html" class="add-button">Добавить</a>
     </body>
