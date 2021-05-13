@@ -67,6 +67,30 @@
         <tracking-mode>COOKIE</tracking-mode>
     </session-config>
 
+    <context-param>
+        <description>JDBC-драйвер</description>
+        <param-name>jdbc-driver</param-name>
+        <param-value>com.mysql.cj.jdbc.Driver</param-value>
+    </context-param>
+
+    <context-param>
+        <description>JDBC-URL</description>
+        <param-name>jdbc-url</param-name>
+        <param-value>jdbc:mysql://localhost:3306/epam_project_db?useUnicode=true&amp;characterEncoding=UTF-8</param-value>
+    </context-param>
+
+    <context-param>
+        <description>имя пользователя БД</description>
+        <param-name>jdbc-username</param-name>
+        <param-value>root</param-value>
+    </context-param>
+
+    <context-param>
+        <description>пароль пользователя БД</description>
+        <param-name>jdbc-password</param-name>
+        <param-value></param-value>
+    </context-param>
+
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
